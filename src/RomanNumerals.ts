@@ -60,3 +60,7 @@ const parseRomanNumeral = (input: string, total: number): number | null => {
 export const romanToNum = (romanNumeral: string): number | null => {
   return parseRomanNumeral(romanNumeral, 0);
 };
+
+export const numToRoman = (numberToConvert: number): string => {
+  return "I";
+};
