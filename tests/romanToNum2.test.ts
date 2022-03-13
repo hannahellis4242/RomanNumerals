@@ -61,11 +61,6 @@ const romanToNum2 = (romanNumeral: string): number | null => {
   return parseRomanNumeral(romanNumeral, 0);
 };
 
-test("substring", () => {
-  const str = "H";
-  console.log(str.substring(0, 2));
-});
-
 test.each([
   ["I", 1],
   ["II", 2],
@@ -81,6 +76,7 @@ test.each([
   ["M", 1000],
   ["XC", 90],
   ["CM", 900],
+  ["A", null],
 ])("Roman numeral %p = %p", (input: string, expected: number | null) => {
   expect(romanToNum2(input)).toEqual(expected);
 });
