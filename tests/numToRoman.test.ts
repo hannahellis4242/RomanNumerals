@@ -16,6 +16,10 @@ test.each([
   [90, "XC"],
   [900, "CM"],
   [1986, "MCMLXXXVI"],
-])("Number %p = %p", (input: number, expected: string) => {
+  [0, ""],
+  [-1, null],
+  [0.5, null],
+  [101.2, null],
+])("Number %p = %p", (input: number, expected: string | null) => {
   expect(numToRoman(input)).toEqual(expected);
 });
