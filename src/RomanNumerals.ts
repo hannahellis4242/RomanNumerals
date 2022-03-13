@@ -61,6 +61,28 @@ export const romanToNum = (romanNumeral: string): number | null => {
   return parseRomanNumeral(romanNumeral, 0);
 };
 
-export const numToRoman = (numberToConvert: number): string => {
-  return "I";
+const tokensSortedLargestFirst = [...allTokens].sort(
+  (a, b) => b.value - a.value
+);
+
+const parseNumToRoman = (
+  numberToConvert: number,
+  romanString: string
+): string | null => {
+  if (numberToConvert === 0) {
+    return romanString;
+  }
+  const token = tokensSortedLargestFirst.find(
+    ({ value }) => numberToConvert - value >= 0
+  );
+  if (token) {
+    return parseNumToRoman(
+      numberToConvert - token.value,
+      romanString + token.symbol
+    );
+  }
+  return null;
+};
+export const numToRoman = (numberToConvert: number): string | null => {
+  return parseNumToRoman(numberToConvert, "");
 };
