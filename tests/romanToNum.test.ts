@@ -20,6 +20,7 @@ test.each([
   ["MCMLGXXXVI", null],
   ["IC", null],
   ["IVXXXLMCM", null],
+  ["IIII", null],
 ])("Roman numeral %p = %p", (input: string, expected: number | null) => {
   expect(romanToNum(input)).toEqual(expected);
 });
