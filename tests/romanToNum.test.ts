@@ -23,3 +23,8 @@ test.each([
 ])("Roman numeral %p = %p", (input: string, expected: number | null) => {
   expect(romanToNum(input)).toEqual(expected);
 });
+
+/*
+Think a good way to deal with this is to list the allowed tokens after each token.
+That way if a disallowed token follows the previous one we can say it's invalid
+*/
